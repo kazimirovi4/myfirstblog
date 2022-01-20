@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Последняя статья
+{% endblock %}
+
+{% block content %}
+    {% if latest_blog %}
+        {% for a in latest_blog %}
+            <a href="{% url 'blog:detail' a.id %}">{{ a.title }}</a>
+        {% endfor %}
+    {% else %}
+        Статьи не найдены =(
+    {% endif %}
+{% endblock %}
